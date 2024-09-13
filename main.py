@@ -195,8 +195,8 @@ while not done:
     if music_frames_counter == 14:
         if n < len(notes_sequence) - 1:
             play_midi_note(notes_sequence[n], notes_sequence[n + 1]//12)
-            print(notes_sequence[n])
-            print(notes_sequence[n + 1]//12)
+            # print(notes_sequence[n])
+            # print(notes_sequence[n + 1]//12)
 
             n += 2
         else:
@@ -221,17 +221,6 @@ while not done:
         elif snake.next_direction == "down":
             snake.direction = "down"
             snake.move(0, 20)
-        
-        # if n < len(notes_sequence) - 1:
-        #     play_midi_note(notes_sequence[n], notes_sequence[n + 1]//12)
-        #     snake.color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-        #     print(notes_sequence[n])
-
-        #     n += 2
-        # else:
-        #     n = 0
-
-
 
 
         # insert the snake coords at the beginning of the snake_coords list
@@ -240,8 +229,6 @@ while not done:
         # remove the last element of the snake_coords list
         if len(snake_coords) > snake.length:
             snake_coords.pop()
-        
-        # print(snake_coords)
         
         # chech if the snake collides with itself 
         # if so, end the game
@@ -300,6 +287,7 @@ while not done:
  
 
 # Close the MIDI output device
+fs.delete()
 
 
 pygame.quit()
@@ -309,7 +297,6 @@ pygame.quit()
 #TODO add a game over screen
 #TODO add a start screen
 #TODO add a game over sound
-#TODO add a background music
 #TODO add a game over message
 #TODO add a game over animation
 #TODO win the game when the snake reaches a certain length
