@@ -69,15 +69,15 @@ class Fruit(pygame.sprite.Sprite):
         self.image = pygame.Surface([20, 20])
         self.image.fill(RED)
         self.rect = self.image.get_rect()
-        self.rect.x = random.randint(0, 25) * 20
-        self.rect.y = random.randint(0, 25) * 20
+        self.rect.x = random.randint(0, 24) * 20
+        self.rect.y = random.randint(0, 24) * 20
 
     def draw(self):
         pygame.draw.rect(screen, RED, [self.rect.x, self.rect.y, 20, 20])
 
     def regenerate_coords(self):
-        self.rect.x = random.randint(0, 25) * 20
-        self.rect.y = random.randint(0, 25) * 20
+        self.rect.x = random.randint(0, 24) * 20
+        self.rect.y = random.randint(0, 24) * 20
         
     def get_coords(self):
         return (self.rect.x, self.rect.y)
@@ -155,7 +155,7 @@ while not done:
         if len(snake_coords) > snake.length:
             snake_coords.pop()
         
-        print(snake_coords)
+        # print(snake_coords)
         
         # chech if the snake collides with itself 
         # if so, end the game
@@ -191,10 +191,11 @@ while not done:
                 fruits.pop()
                 
             fruits_coords.append(fruits[-1].get_coords())
-            print("snake length: ", snake.length)
+            # print("snake length: ", snake.length)
         else:
             # draw the fruit
             fr.draw()
+        
         
     # --- update the screen --- #
     pygame.display.flip()
