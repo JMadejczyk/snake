@@ -22,11 +22,33 @@ RED = (255, 0, 0)
 
 
 # notes_sequence = [60, 62, 64, 65, 67, 69, 71, 72]
-notes_sequence = [76, 12, 76, 12, 20, 12, 76, 12, 20, 12, 72, 12, 76, 12, 20, 12, 79, 12, 20, 36, 67, 12, 20, 36, 72, 12, 20, 24, 67, 12, 20, 24, 64, 12, 20, 24, 69, 12, 20, 12, 71, 12, 20, 12, 70, 12, 69, 12, 20, 12, 67, 16, 76, 16, 79, 16, 81, 12, 20, 12, 77, 12, 79, 12, 20, 12, 76, 12, 20, 12, 72, 12, 74, 12, 71, 12, 20, 24, 48, 12, 20, 12, 79, 12, 78, 12, 77, 12, 75, 12, 60, 12, 76, 12, 53, 12, 68, 12, 69, 12, 72, 12, 60, 12, 69, 12, 72, 12, 74, 12, 48, 12, 20, 12, 79, 12, 78, 12, 77, 12, 75, 12, 55, 12, 76, 12, 20, 12, 84, 12, 20, 12, 84, 12, 84, 12, 55, 12, 20, 12, 48, 12, 20, 12, 79, 12, 78, 12, 77, 12, 75, 12, 60, 12, 76, 12, 53, 12, 68, 12, 69, 12, 72, 12, 60, 12, 69, 12, 72, 12, 74, 12, 48, 12, 20, 12, 75, 24, 20, 12, 74, 24, 20, 12, 72, 24, 20, 12, 55, 12, 55, 12, 20, 12, 48, 12
+notes_sequence = [76, 12, 76, 12, 20, 12, 76, 12, 20, 12, 72, 12, 76, 12, 20, 12, 79, 12, 20, 36, 67, 12, 20, 36, 72, 12, 20,
+24, 67, 12, 20, 24, 64, 12, 20, 24, 69, 12, 20, 12, 71, 12, 20, 12, 70, 12, 69, 12, 20, 12, 67, 16, 76, 16, 79, 16, 81, 12, 20,
+12, 77, 12, 79, 12, 20, 12, 76, 12, 20, 12, 72, 12, 74, 12, 71, 12, 20, 24, 48, 12, 20, 12, 79, 12, 78, 12, 77, 12, 75, 12, 60,
+12, 76, 12, 53, 12, 68, 12, 69, 12, 72, 12, 60, 12, 69, 12, 72, 12, 74, 12, 48, 12, 20, 12, 79, 12, 78, 12, 77, 12, 75, 12, 55,
+12, 76, 12, 20, 12, 84, 12, 20, 12, 84, 12, 84, 12, 55, 12, 20, 12, 48, 12, 20, 12, 79, 12, 78, 12, 77, 12, 75, 12, 60, 12, 76,
+12, 53, 12, 68, 12, 69, 12, 72, 12, 60, 12, 69, 12, 72, 12, 74, 12, 48, 12, 20, 12, 75, 24, 20, 12, 74, 24, 20, 12, 72, 24, 20,
+12, 55, 12, 55, 12, 20, 12, 48, 12, 72, 12, 72, 12, 20, 12, 72, 12, 20, 12, 72, 12, 74, 12, 20, 12, 76, 12, 72, 12, 20, 12, 69,
+12, 67, 12, 20, 12, 43, 12, 20, 12, 72, 12, 72, 12, 20, 12, 72, 12, 20, 12, 72, 12, 74, 12, 76, 12, 55, 12, 20, 24, 48, 12, 20,
+24, 43, 12, 20, 12, 72, 12, 72, 12, 20, 12, 72, 12, 20, 12, 72, 12, 74, 12, 20, 12, 76, 12, 72, 12, 20, 12, 69, 12, 67, 12, 20,
+12, 43, 12, 20, 12, 76, 12, 76, 12, 20, 12, 76, 12, 20, 12, 72, 12, 76, 12, 20, 12, 79, 12, 20, 36, 67, 12, 20, 36, 76, 12, 72,
+12, 20, 12, 67, 12, 55, 12, 20, 12, 68, 12, 20, 12, 69, 12, 77, 12, 53, 12, 77, 12, 69, 12, 60, 12, 53, 12, 20, 12, 71, 16, 81,
+16, 81, 16, 81, 16, 79, 16, 77, 16, 76, 12, 72, 12, 55, 12, 69, 12, 67, 12, 60, 12, 55, 12, 20, 12, 76, 12, 72, 12, 20, 12, 67,
+12, 55, 12, 20, 12, 68, 12, 20, 12, 69, 12, 77, 12, 53, 12, 77, 12, 69, 12, 60, 12, 53, 12, 20, 12, 71, 12, 77, 12, 20, 12, 77,
+12, 77, 16, 76, 16, 74, 16, 72, 12, 64, 12, 55, 12, 64, 12, 60, 12, 20, 36, 72, 12, 20, 24, 67, 12, 20, 24, 64, 24, 69, 16, 71,
+16, 69, 16, 68, 24, 70, 24, 68, 24, 67, 12, 65, 12, 67, 48]
 
-, 72, 12, 72, 12, 20, 12, 72, 12, 20, 12, 72, 12, 74, 12, 20, 12, 76, 12, 72, 12, 20, 12, 69, 12, 67, 12, 20, 12, 43, 12, 20, 12, 72, 12, 72, 12, 20, 12, 72, 12, 20, 12, 72, 12, 74, 12, 76, 12, 55, 12, 20, 24, 48, 12, 20, 24, 43, 12, 20, 12, 72, 12, 72, 12, 20, 12, 72, 12, 20, 12, 72, 12, 74, 12, 20, 12, 76, 12, 72, 12, 20, 12, 69, 12, 67, 12, 20, 12, 43, 12, 20, 12, 76, 12, 76, 12, 20, 12, 76, 12, 20, 12, 72, 12, 76, 12, 20, 12, 79, 12, 20, 36, 67, 12, 20, 36
 
-, 76, 12, 72, 12, 20, 12, 67, 12, 55, 12, 20, 12, 68, 12, 20, 12, 69, 12, 77, 12, 53, 12, 77, 12, 69, 12, 60, 12, 53, 12, 20, 12, 71, 16, 81, 16, 81, 16, 81, 16, 79, 16, 77, 16, 76, 12, 72, 12, 55, 12, 69, 12, 67, 12, 60, 12, 55, 12, 20, 12, 76, 12, 72, 12, 20, 12, 67, 12, 55, 12, 20, 12, 68, 12, 20, 12, 69, 12, 77, 12, 53, 12, 77, 12, 69, 12, 60, 12, 53, 12, 20, 12, 71, 12, 77, 12, 20, 12, 77, 12, 77, 16, 76, 16, 74, 16, 72, 12, 64, 12, 55, 12, 64, 12, 60, 12, 20, 36, 72, 12, 20, 24, 67, 12, 20, 24, 64, 24, 69, 16, 71, 16, 69, 16, 68, 24, 70, 24, 68, 24, 67, 12, 65, 12, 67, 48]
+def play_coin_sound_thread(velocity=127):
+    fs.noteon(0, 83, velocity)
+    time.sleep(0.1)
+    fs.noteon(0, 88, velocity)
+    fs.noteoff(0, 83)
+    fs.noteoff(0, 88)
+
+def play_coin_sound():
+    thread = threading.Thread(target=play_coin_sound_thread)
+    thread.start()
 
 
 
@@ -127,8 +149,10 @@ clock = pygame.time.Clock()
 snake = Snake()
 font = pygame.font.Font(None, 36)
 fruits = []
+music_frames_counter = 0
 frames_counter = 0
 snake_coords = []
+fps = 60
 
 # Initializa the fruits
 fruits_coords = []
@@ -164,8 +188,20 @@ while not done:
 
     # --- Game logic --- #
     frames_counter += 1
+    music_frames_counter += 1
    
     # every 30 frames the snake moves
+
+    if music_frames_counter == 14:
+        if n < len(notes_sequence) - 1:
+            play_midi_note(notes_sequence[n], notes_sequence[n + 1]//12)
+            print(notes_sequence[n])
+            print(notes_sequence[n + 1]//12)
+
+            n += 2
+        else:
+            n = 0
+        music_frames_counter = 0
     
     if frames_counter == 28:
         frames_counter = 0
@@ -186,14 +222,14 @@ while not done:
             snake.direction = "down"
             snake.move(0, 20)
         
-        if n < len(notes_sequence) - 1:
-            play_midi_note(notes_sequence[n], notes_sequence[n + 1]//12)
-            snake.color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-            print(notes_sequence[n])
+        # if n < len(notes_sequence) - 1:
+        #     play_midi_note(notes_sequence[n], notes_sequence[n + 1]//12)
+        #     snake.color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        #     print(notes_sequence[n])
 
-            n += 2
-        else:
-            n = 0
+        #     n += 2
+        # else:
+        #     n = 0
 
 
 
@@ -214,15 +250,7 @@ while not done:
             done = True
    
 
-    if frames_counter == 14 or frames_counter == 28:
-        if n < len(notes_sequence) - 1:
-            play_midi_note(notes_sequence[n], notes_sequence[n + 1]//12)
-            print(notes_sequence[n])
-            print(notes_sequence[n + 1]//12)
-
-            n += 2
-        else:
-            n = 0
+   
 
     # --- Drawing code --- #
 
@@ -239,9 +267,11 @@ while not done:
         if fr.get_coords() == snake.get_coords():
             fruits_coords.remove(fr.get_coords())
             fruits.remove(fr)
-            play_midi_note(random.choice(notes_sequence))  # Play a random note when the snake eats a fruit
+            # play_midi_note(random.choice(notes_sequence))  # Play a random note when the snake eats a fruit
+            play_coin_sound()
             # increase the snake length if it collides with a fruit
             snake.length += 1
+            fps += 1
             # add a new fruit
             fruits.append(Fruit())
             # check if the fruit is not in the snake or in another fruit
@@ -266,7 +296,7 @@ while not done:
     pygame.display.flip()
  
     # --- Limit to 60 frames per second --- #
-    clock.tick(60)
+    clock.tick(fps)
  
 
 # Close the MIDI output device
