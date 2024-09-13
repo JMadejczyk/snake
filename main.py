@@ -8,6 +8,7 @@ RED = (255, 0, 0)
  
 pygame.init()
 
+
 def draw_grid():
     black = False
     for i in range(0, 500, 20):
@@ -17,6 +18,11 @@ def draw_grid():
                 pygame.draw.rect(screen, (90, 90, 110), [i, j, 20, 20])
             else:
                 pygame.draw.rect(screen, (100, 100, 120), [i, j, 20, 20])
+
+def collision(snake, snake_coords):
+            if snake.get_coords() in snake_coords[1:]:
+                return True
+            return False
 
 
 class Snake(pygame.sprite.Sprite):
@@ -53,6 +59,10 @@ class Snake(pygame.sprite.Sprite):
     def draw(self):
         pygame.draw.rect(screen, GREEN, [self.rect.x, self.rect.y, 20, 20])
 
+    def get_coords(self):
+        return (self.rect.x, self.rect.y)
+
+
 class Fruit(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -65,11 +75,11 @@ class Fruit(pygame.sprite.Sprite):
     def draw(self):
         pygame.draw.rect(screen, RED, [self.rect.x, self.rect.y, 20, 20])
 
-    def reregenerate_coords(self):
+    def regenerate_coords(self):
         self.rect.x = random.randint(0, 25) * 20
         self.rect.y = random.randint(0, 25) * 20
         
-    def get_fruit_coords(self):
+    def get_coords(self):
         return (self.rect.x, self.rect.y)
 
 
@@ -83,16 +93,17 @@ clock = pygame.time.Clock()
 snake = Snake()
 fruits = []
 frames_counter = 0
+snake_coords = []
 
 # Initializa the fruits
 fruits_coords = []
 for i in range(4):
     fruits.append(Fruit())
-    while fruits[i].get_fruit_coords() in fruits_coords:
+    # check if the fruit is not in the snake or in another fruit
+    while fruits[i].get_coords() in fruits_coords or fruits[i].get_coords() in snake_coords:
+        # if so, regenerate the fruit coords
         fruits[i].regenerate_coords()
-    fruits_coords.append(fruits[i].get_fruit_coords())
-    # print(len(fruits))
-    # print(len(fruits_coords))
+    fruits_coords.append(fruits[i].get_coords())
     
 # -------- Main Program Loop -----------
 while not done:
@@ -117,39 +128,72 @@ while not done:
  
     # --- Game logic --- #
     frames_counter += 1
+    # every 30 frames the snake moves
     if frames_counter == 30:
         frames_counter = 0
+
         if snake.next_direction == "left":
             snake.direction = "left"
             snake.move(-20, 0)
-        if snake.next_direction == "right":
+
+        elif snake.next_direction == "right":
             snake.direction = "right"
             snake.move(20, 0)
-        if snake.next_direction == "up":
+            
+        elif snake.next_direction == "up":
             snake.direction = "up"
             snake.move(0, -20)
-        if snake.next_direction == "down":
+
+        elif snake.next_direction == "down":
             snake.direction = "down"
             snake.move(0, 20)
+
+        # insert the snake coords at the beginning of the snake_coords list
+        snake_coords.insert(0, snake.get_coords())
+    
+        # remove the last element of the snake_coords list
+        if len(snake_coords) > snake.length:
+            snake_coords.pop()
         
+        print(snake_coords)
+        
+        # chech if the snake collides with itself 
+        # if so, end the game
+        if collision(snake, snake_coords):
+            print("Game Over")
+            done = True
    
     # --- Drawing code --- #
 
     draw_grid()
     snake.draw()
 
+    # draw the snake tail
+    for coord in snake_coords[1:]:
+        pygame.draw.rect(screen, GREEN, [coord[0], coord[1], 20, 20])
+
     for fr in fruits:
-        if fr.rect.x == snake.rect.x and fr.rect.y == snake.rect.y:
-            fruits_coords.remove((fr.rect.x, fr.rect.y))
+        # check if the snake collides with a fruit
+        if fr.get_coords() == snake.get_coords():
+            fruits_coords.remove(fr.get_coords())
             fruits.remove(fr)
+            # increase the snake length if it collides with a fruit
             snake.length += 1
+            # add a new fruit
             fruits.append(Fruit())
-            
-            while fruits[-1].get_fruit_coords() in fruits_coords:
+            # check if the fruit is not in the snake or in another fruit
+            while (fruits[-1].get_coords() in fruits_coords or fruits[-1].get_coords() in snake_coords) and snake.length <= 621:
+                # if so, regenerate the fruit coords
                 fruits[-1].regenerate_coords()
-            fruits_coords.append(fruits[-1].get_fruit_coords())
+
+            # if the snake length is greater than 621, remove the last fruit
+            if snake.length > 621:
+                fruits.pop()
+                
+            fruits_coords.append(fruits[-1].get_coords())
             print("snake length: ", snake.length)
         else:
+            # draw the fruit
             fr.draw()
         
     # --- update the screen --- #
@@ -159,3 +203,20 @@ while not done:
     clock.tick(60)
  
 pygame.quit()
+
+#TODO end the game when the snake collides with itself
+#TODO add a score counter
+#TODO add a score animation
+#TODO add a restart button
+#TODO add a game over screen
+#TODO add a start screen
+#TODO add a game over sound
+#TODO add a background music
+#TODO add a game over message
+#TODO add a game over animation
+#TODO win the game when the snake reaches a certain length
+#TODO add a win screen
+#TODO add a win sound
+#TODO add a win message
+
+
